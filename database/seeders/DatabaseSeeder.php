@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-<<<<<<< HEAD
-=======
         // User::factory()->create([
         //     'nik' => '35060',
         //     'nama' => 'tester',
@@ -35,6 +33,5 @@ class DatabaseSeeder extends Seeder
             'jenis_kelamin' => 'L',
             'alamat' => 'Mlg'
         ]);
->>>>>>> e7c58b2c5560a1bf91c8e8181228efb663760715
     }
 }
