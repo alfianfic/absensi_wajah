@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('nik')->unique;
             $table->string('nama');
-            $table->char('jenis_kelamin',1);
-            $table->string('alamat');
-            $table->bigInteger('no_hp');
-            $table->string('autentikasi_wajah');
+            $table->char('jenis_kelamin',1)->nullable();
+            $table->string('alamat')->nullable();
+            $table->bigInteger('no_hp')->nullable();
+            $table->string('autentikasi_wajah')->nullable();
             $table->integer('role');
-            $table->boolean('bekerja');
+            $table->boolean('bekerja')->nullable();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             // $table->rememberToken();
