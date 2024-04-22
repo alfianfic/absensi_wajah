@@ -1,0 +1,10 @@
+{{auth()->user()->nik}}
+</br>
+{{auth()->user()->nama}}
+</br>
+{{auth()->user()->jenis_kelamin}}
+</br>
+{{auth()->user()->alamat}}
+</br>
+{{auth()->user()->no_hp}}
+</br>
