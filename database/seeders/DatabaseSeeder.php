@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,28 +14,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-<<<<<<< HEAD
-=======
-        // User::factory()->create([
-        //     'nik' => '35060',
-        //     'nama' => 'tester',
-        //     'role' => '1',
-        //     'password' => '1',
-        // ]);
-        User::create([
-            'nik' => '35060',
-            'nama' => 'tester',
+        //TAMBAH DATA USER
+        DB::table('users')->insert([
+            [
+            'nik' => '00001',
+            'nama' => 'ADMIN',
             'role' => '1',
             'password' => '1',
-            'jenis_kelamin' => 'L',
-            'alamat' => 'Mlg'
-        ]);
->>>>>>> e7c58b2c5560a1bf91c8e8181228efb663760715
+            'jenis_kelamin' => 'P',
+            'alamat' => 'kdr'
+            ],
+            [
+            'nik' => '00002',
+            'nama' => 'TESTER',
+            'role' => '0',
+            'password' => '1',
+            'jenis_kelamin' => 'P',
+            'alamat' => 'mlg'
+            ],
+            [
+            'nik' => '00003',
+            'nama' => 'PEGAWAI',
+            'role' => '1',
+            'password' => '1',
+            'jenis_kelamin' => 'P',
+            'alamat' => 'sby'
+            ]]
+        );
     }
 }
