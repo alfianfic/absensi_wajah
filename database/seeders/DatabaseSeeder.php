@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         //TAMBAH DATA USER
-        DB::table('users')->insert([
+        DB::table('karyawan')->insert([
             [
             'nik' => '00001',
             'nama' => 'ADMIN',
@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
             ],
             [
             'nik' => '00002',
-            'nama' => 'TESTER',
-            'role' => '0',
+            'nama' => 'OWNER',
+            'role' => '3',
             'password' => '1',
             'jenis_kelamin' => 'P',
             'alamat' => 'mlg'
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             [
             'nik' => '00003',
             'nama' => 'PEGAWAI',
-            'role' => '1',
+            'role' => '2',
             'password' => '1',
             'jenis_kelamin' => 'P',
             'alamat' => 'sby'
