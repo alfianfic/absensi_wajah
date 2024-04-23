@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('id_gaji')->unique();
             $table->unsignedBigInteger('nama');
             $table->string('keterangan');
-            $table->integer('alpha');
-            $table->integer('ijin');
-            $table->integer('sakit');
-            $table->time('jam_kedatangan');
-            $table->time('jam_pulang');
-            $table->time('jam_lembur');
+            $table->integer('alpha')->unsigned();
+            $table->integer('ijin')->unsigned();
+            $table->integer('sakit')->unsigned();
+            $table->time('jam_kedatangan')->nullable();
+            $table->time('jam_pulang')->nullable();
+            $table->time('jam_lembur')->nullable();
 
             $table->foreign('nama')->references('id')->on('karyawan');
         });

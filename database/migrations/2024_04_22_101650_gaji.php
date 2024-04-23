@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('nominal');
 
             $table->foreign('nama_karyawan')->references('id')->on('karyawan');
+            $table->foreign('absensi')->references('id_gaji')->on('absensi');
         });
     }
 
