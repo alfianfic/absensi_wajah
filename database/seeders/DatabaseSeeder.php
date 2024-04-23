@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             [
             'nik' => '00002',
             'nama' => 'OWNER',
-            'role' => '3',
+            'role' => '2',
             'password' => '1',
             'jenis_kelamin' => 'P',
             'alamat' => 'mlg'
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             [
             'nik' => '00003',
             'nama' => 'PEGAWAI',
-            'role' => '2',
+            'role' => '3',
             'password' => '1',
             'jenis_kelamin' => 'P',
             'alamat' => 'sby'
