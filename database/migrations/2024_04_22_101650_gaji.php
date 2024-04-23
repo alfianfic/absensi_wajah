@@ -14,10 +14,11 @@ return new class extends Migration
         // Gaji
         Schema::create("gaji",function (Blueprint $table){
             $table->string('id_gaji')->unique();
-            $table->string('nama');
+            $table->unsignedBigInteger('nama_karyawan');
             $table->string('absensi');
             $table->integer('nominal');
 
+            $table->foreign('nama_karyawan')->references('id')->on('karyawan');
         });
     }
 

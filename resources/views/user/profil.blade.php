@@ -1,3 +1,5 @@
+<h1>PROFIL KARYAWAN</h1>
+
 {{auth()->user()->nik}}
 </br>
 {{auth()->user()->nama}}
