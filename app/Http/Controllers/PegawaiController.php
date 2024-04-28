@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
 {
-    public function home()
+    public function beranda()
     {
         return view('pegawai.home');
     }
