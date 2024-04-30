@@ -25,7 +25,7 @@ python3 training.py
 ```
 menjalankan recog-face
 ```python
-python3 add.py
+python3 recog-face.py
 ```
 
 ## Contributing
