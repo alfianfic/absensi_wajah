@@ -18,12 +18,12 @@ Route::get('/profil', [UserController::class, 'profil'])->middleware('auth')->na
 Route::get('/test', [UserController::class, 'test'])->middleware('auth');
 Route::get('/', [UserController::class, 'home']);
 
-Route::get('/home', [PegawaiController::class, 'home'])->middleware('pegawai');
+Route::get('/beranda', [PegawaiController::class, 'beranda'])->middleware('pegawai');
 Route::get('/jadwal', [PegawaiController::class, 'jadwal'])->middleware('pegawai');
 Route::get('/izin', [PegawaiController::class, 'izin'])->middleware('pegawai');
 Route::get('/gaji', [PegawaiController::class, 'gaji'])->middleware('pegawai');
 
-// Route::get('/home', [AdminController::class, 'home'])->middleware('auth');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware('auth');
 Route::get('/kelola_karyawan', [AdminController::class, 'kelola_karyawan'])->middleware('admin');
 Route::get('/tambah_karyawan', [AdminController::class, 'tambah_karyawan'])->middleware('admin');
 Route::get('/edit_karyawan', [AdminController::class, 'edit_karyawan'])->middleware('admin');
