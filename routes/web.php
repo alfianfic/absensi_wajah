@@ -6,20 +6,16 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AdminController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'auth']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+Route::get('/', [UserController::class, 'home']);
+Route::get('/jadwal', [UserController::class, 'jadwal'])->middleware('auth')->name('profile')->middleware('auth');
 Route::get('/profil', [UserController::class, 'profil'])->middleware('auth')->name('profile')->middleware('auth');
 Route::get('/test', [UserController::class, 'test'])->middleware('auth');
-Route::get('/', [UserController::class, 'home']);
 
 Route::get('/beranda', [PegawaiController::class, 'beranda'])->middleware('pegawai');
-Route::get('/jadwal', [PegawaiController::class, 'jadwal'])->middleware('pegawai');
 Route::get('/izin', [PegawaiController::class, 'izin'])->middleware('pegawai');
 Route::get('/gaji', [PegawaiController::class, 'gaji'])->middleware('pegawai');
 
@@ -32,4 +28,3 @@ Route::get('/absensi', [AdminController::class, 'absensi'])->middleware('admin')
 Route::get('/menu_jadwal', [AdminController::class, 'menu_jadwal'])->middleware('admin');
 Route::get('/kelola_jadwal', [AdminController::class, 'kelola_jadwal'])->middleware('admin');
 Route::get('/menu_gaji', [AdminController::class, 'menu_gaji'])->middleware('admin');
-Route::get('/gaji_lembur', [AdminController::class, 'gaji_lembur'])->middleware('admin');

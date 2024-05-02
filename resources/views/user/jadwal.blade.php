@@ -9,7 +9,7 @@
 <hr>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Gaji</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Jadwal</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -18,18 +18,36 @@
                     <tr>
                         <th>Foto</th>
                         <th>Nama</th>
-                        <th>Gaji</th>
+                        <th>Tanggal</th>
+                        <th>Alpha</th>
+                        <th>Izin</th>
+                        <th>Sakit</th>
+                        <th>Masuk</th>
+                        <th>Lembur</th>
+                        <th>Simpan</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>Foto</th>
                         <th>Nama</th>
-                        <th>Gaji</th>
+                        <th>Tanggal</th>
+                        <th>Alpha</th>
+                        <th>Izin</th>
+                        <th>Sakit</th>
+                        <th>Masuk</th>
+                        <th>Lembur</th>
+                        <th>Simpan</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     <tr>
+                        <td>te</td>
+                        <td>te</td>
+                        <td>te</td>
+                        <td>te</td>
+                        <td>te</td>
+                        <td>te</td>
                         <td>te</td>
                         <td>te</td>
                         <td>te</td>

@@ -18,4 +18,8 @@ class UserController extends Controller
     {
         return view('user.profil');
     }
+    public function jadwal()
+    {
+        return view('user.jadwal');
+    }
 }
