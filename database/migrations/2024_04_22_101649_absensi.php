@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         // Gaji
-        Schema::create("absensi",function (Blueprint $table){
+        Schema::create("absensi", function (Blueprint $table) {
             $table->string('id_gaji')->unique();
             $table->unsignedBigInteger('nama');
             $table->string('keterangan');
             $table->integer('alpha')->unsigned();
             $table->integer('ijin')->unsigned();
             $table->integer('sakit')->unsigned();
+            $table->date('tanggal')->nullable();
             $table->time('jam_kedatangan')->nullable();
             $table->time('jam_pulang')->nullable();
             $table->time('jam_lembur')->nullable();
