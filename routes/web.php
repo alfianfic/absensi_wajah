@@ -25,6 +25,5 @@ Route::get('/tambah_karyawan', [AdminController::class, 'tambah_karyawan'])->mid
 Route::get('/edit_karyawan', [AdminController::class, 'edit_karyawan'])->middleware('admin');
 Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middleware('admin');
 Route::get('/absensi', [AdminController::class, 'absensi'])->middleware('admin');
-Route::get('/menu_jadwal', [AdminController::class, 'menu_jadwal'])->middleware('admin');
 Route::get('/kelola_jadwal', [AdminController::class, 'kelola_jadwal'])->middleware('admin');
 Route::get('/menu_gaji', [AdminController::class, 'menu_gaji'])->middleware('admin');

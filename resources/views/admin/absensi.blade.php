@@ -1,5 +1,5 @@
 @extends('master')
-@section('title','Login')
+@section('title','Absensi')
 @section('isi')
 <a href="#" class="btn btn-warning btn-icon-split">
     <span class="text">Kembali
