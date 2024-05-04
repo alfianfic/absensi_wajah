@@ -1,60 +1,39 @@
-@extends('master')
-@section('title','Login')
+@extends('admin.home')
+@section('title','Gaji')
 @section('isi')
-<a href="#" class="btn btn-warning btn-icon-split">
-    <span class="text">Kembali
+<div class="container-fluid">
 
-    </span>
-</a>
-<hr>
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Gaji</h6>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Alpha</th>
-                        <th>Izin</th>
-                        <th>Sakit</th>
-                        <th>Masuk</th>
-                        <th>Lembur</th>
-                        <th>Simpan</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Alpha</th>
-                        <th>Izin</th>
-                        <th>Sakit</th>
-                        <th>Masuk</th>
-                        <th>Lembur</th>
-                        <th>Simpan</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                        <td>te</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Data Gaji</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Data Gaji</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Total Presensi</th>
+                            <th>Nominal</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Total Presensi</th>
+                            <th>Nominal</th>
+                            <th>Action</th>
+                        </tr>
+                    <tfoot>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
 </div>
 @endsection

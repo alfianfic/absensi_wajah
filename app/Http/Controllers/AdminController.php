@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.home');
+        return view('admin.dashboard');
     }
     public function kelola_karyawan()
     {

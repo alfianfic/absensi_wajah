@@ -1,12 +1,6 @@
-@extends('master')
-@section('title','Login')
+@extends('admin.home')
+@section('title','Absensi')
 @section('isi')
-<a href="#" class="btn btn-warning btn-icon-split">
-    <span class="text">Kembali
-
-    </span>
-</a>
-<hr>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Absensi</h6>
