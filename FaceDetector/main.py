@@ -17,6 +17,7 @@ class Sql :
             )
         except Exception as e :
             print(e)
+            exit()
         pass
 
     def sql_connect(self):
