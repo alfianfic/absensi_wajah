@@ -14,18 +14,11 @@ python3 -m pip install -r requirements.txt
 
 ## Usage
 
-menambahkan data untuk  pelatihan dataset
-```python
-python3 add.py
-```
+Sebelum melakukan eksekusi perintah di bawah di harap sudah menyalakan koneksi database di perangkat masing masing
 
-melakukan pelatihan terlebih dahulu pada dataset
+Menjalankan program
 ```python
-python3 training.py
-```
-menjalankan recog-face
-```python
-python3 recog-face.py
+python3 main.py
 ```
 
 ## Contributing
