@@ -1,3 +1,5 @@
 opencv-contrib-python==4.9.0.80
 opencv-python==4.9.0.80
 pillow==10.2.0
+python-dotenv==1.0.1
+mysql-connector-python==8.2.0
