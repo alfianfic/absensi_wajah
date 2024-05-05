@@ -1,4 +1,6 @@
-home
+@extends('master')
+@section('title','Home')
+@section('isi')
 </br>
 @auth
 Selamat Datang {{auth()->user()->nik}}
@@ -12,3 +14,4 @@ Selamat Datang {{auth()->user()->nik}}
 <a href="/login">login</a>
 </br>
 @endauth
+@endsection

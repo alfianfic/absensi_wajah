@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         // Gaji
-        Schema::create("gaji",function (Blueprint $table){
+        Schema::create("gaji", function (Blueprint $table) {
             $table->string('id_gaji')->unique();
             $table->unsignedBigInteger('nama_karyawan');
             $table->string('absensi');
             $table->integer('nominal');
+            $table->integer('bulan')->nullable();
+            $table->year('tahun')->nullable();
 
             $table->foreign('nama_karyawan')->references('id')->on('karyawan');
             $table->foreign('absensi')->references('id_gaji')->on('absensi');

@@ -1,3 +1,7 @@
+@extends('master')
+@section('title','Profil')
+@section('isi')
+
 <h1>PROFIL KARYAWAN</h1>
 
 {{auth()->user()->nik}}
@@ -10,3 +14,5 @@
 </br>
 {{auth()->user()->no_hp}}
 </br>
+
+@endsection
