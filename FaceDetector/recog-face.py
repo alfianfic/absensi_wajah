@@ -24,11 +24,11 @@ while True:
     for (x, y, w, h) in faces: #x,y bagian titik awal atas w,h untuk width dan height
         cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)    # membuat batas kotak
 
-        id,conf = recogFace.predict(color[x:x+w,y:y+h])
+        id,conf = recogFace.predict(color[y:y+h,x:x+w])
 
         # kondisi jika id ada bisa masuk ke dalam database 
-        if id == 26 :
-            id = "Ahmad"
+        # if id == 26 :
+        #     id = "Ahmad"
 
         cv2.putText(frame,str(id),(x+00,y+0),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0)) # membuat tulisan
 

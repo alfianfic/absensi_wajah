@@ -31,7 +31,7 @@ while True:
     cv2.imshow('Face Detection', frame)
 
     # Hentikan program dengan menekan tombol 'q'
-    if a>10:
+    if a>100:
         break
 
 # Tutup webcam dan jendela OpenCV
