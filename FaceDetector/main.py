@@ -110,12 +110,6 @@ class RecogFace :
 
                 id,conf = recogFace.predict(color[x:x+w,y:y+h])
 
-                if id == 26 :
-                    id = "Ahmad"
-                else :
-                    id = "Tidak ada"
-
-
                 cv2.putText(frame,str(id),(x+00,y+0),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0))
 
             cv2.imshow("Absensi Wajah",frame) #
