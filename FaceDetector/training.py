@@ -6,19 +6,22 @@ recognizer = cv2.face.LBPHFaceRecognizer_create()
 detector = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml");
 
 def getImagesWithLabels(path):
-    imagePaths=[os.path.join(path,f) for f in os.listdir(path)]
-    print(imagePaths)
-    faceSamples=[]
-    Ids=[]
-    for imagePath in imagePaths:
-        pilImage=Image.open(imagePath).convert('L')
-        imageNp=np.array(pilImage,'uint8')
-        Id=int(os.path.split(imagePath)[-1].split(".")[1])
-        faces=detector.detectMultiScale(imageNp)
-        for (x,y,w,h) in faces:
-            faceSamples.append(imageNp[y:y+h,x:x+w])
-            Ids.append(Id)
-    return faceSamples, Ids
+    try :
+        imagePaths=[os.path.join(path,f) for f in os.listdir(path)]
+        print(imagePaths)
+        faceSamples=[]
+        Ids=[]
+        for imagePath in imagePaths:
+            pilImage=Image.open(imagePath).convert('L')
+            imageNp=np.array(pilImage,'uint8')
+            Id=int(os.path.split(imagePath)[-1].split(".")[1])
+            faces=detector.detectMultiScale(imageNp)
+            for (x,y,w,h) in faces:
+                faceSamples.append(imageNp[y:y+h,x:x+w])
+                Ids.append(Id)
+        return faceSamples, Ids
+    except Exception as e:
+        print(e)        
 
 faces, Ids = getImagesWithLabels('DataSet')
 recognizer.train(faces, np.array(Ids))
