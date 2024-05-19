@@ -28,3 +28,5 @@ Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middlew
 Route::get('/absensi', [AdminController::class, 'absensi'])->middleware('admin');
 Route::get('/kelola_jadwal', [AdminController::class, 'kelola_jadwal'])->middleware('admin');
 Route::get('/menu_gaji', [AdminController::class, 'menu_gaji'])->middleware('admin');
+
+Route::get('/karyawan', [PegawaiController::class, "beranda"]);

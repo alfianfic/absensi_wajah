@@ -28,8 +28,18 @@ class AuthController extends Controller
         ]);
 
         if(Auth::Attempt($credential)){
-            $request->session()->regenerate();
-            return redirect("/dashboard");
+            if (Auth::user()->role == 1){
+                $request->session()->regenerate();
+                return redirect("/dashboard");
+            }
+            elseif (Auth::user()->role == 2 ){
+                $request->session()->regenerate();
+                return redirect("/dashboard");
+            }
+            elseif (Auth::user()->role == 3 ){
+                $request->session()->regenerate();
+                return redirect("/karyawan");
+            }
         }
 
         return back()->with('loginError', 'Belum Berhasil, nih!');
