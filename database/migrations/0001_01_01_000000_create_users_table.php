@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('role')->default('1');
             $table->boolean('bekerja')->default('1');
             $table->string('password');
+            $table->char('shift',1);
             // $table->timestamp('email_verified_at')->nullable()();
             // $table->rememberToken();
             $table->timestamps();

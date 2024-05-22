@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Gaji
-        Schema::create("gaji", function (Blueprint $table) {
-            $table->string('id_gaji')->unique();
+        Schema::create('izin', function (Blueprint $table) {
+            $table->string("id_izin")->primary()->unique();
             $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('karyawan');
-            $table->integer('jam_kerja_bulan');
-            $table->integer('bulan')->nullable();
-            $table->integer('tahun')->nullable();
+            $table->string("file_izin");
+            $table->boolean("status")->default(0);
+            $table->dateTime("tgl");
 
+            $table->foreign('id_user')->references('id')->on('karyawan'); 
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('izin');
     }
 };

@@ -1,8 +1,48 @@
+import time
+import datetime
+import mysql.connector
 import cv2, time
 import os
 from PIL import Image
+from dotenv import load_dotenv,dotenv_values
 
+
+now = datetime.datetime.now()
+dt = now.strftime("%H:%M:%S")
+load_dotenv()
+
+class Sql :
+    def __init__(self) -> None:
+        try :
+            self.db_connect = mysql.connector.connect(
+                host = str(os.getenv("DB_HOST")),
+                user = str(os.getenv("DB_USERNAME")),
+                password = str(os.getenv("DB_PASSWORD")),
+                database = str(os.getenv("DB_DATABASE"))
+            )
+        except Exception as e :
+            print(e)
+            exit()
+        pass
+
+    def sql_connect(self):
+        return self.db_connect
+    
+    def update_data(self,):
+        mycursor = self.db_connect.cursor()
+        sql = "UPDATE absensi SET jam_kedatangan = %s WHERE nama = 2"
+        val = (dt,)
+        mycursor.execute(sql, val)
+        self.db_connect.commit()
+        print(mycursor.rowcount, "Data berhasil diupdate...")
+        
+con = Sql()
+conn = con.sql_connect()
+# print(con)
+# lapotp
 camera = 0
+# external
+# camera = "http://192.168.43.217:4747/video"
 video = cv2.VideoCapture(camera)
 faceDetector = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 recogFace = cv2.face.LBPHFaceRecognizer_create()
@@ -25,10 +65,19 @@ while True:
         cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)    # membuat batas kotak
 
         id,conf = recogFace.predict(color[y:y+h,x:x+w])
-
-        # kondisi jika id ada bisa masuk ke dalam database
-        # if id == 26 :
-        #     id = "Ahmad"
+        
+        if id == 99 :
+            con.update_data()
+            time.sleep(3)
+            # break
+            # exit()
+            
+        if id == 26 :
+            con.update_data()
+            # time.sleep(3)
+            # break
+            # exit()
+            
 
         cv2.putText(frame,str(id),(x+00,y+0),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0)) # membuat tulisan
 

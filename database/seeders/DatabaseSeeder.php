@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
             'role' => '1',
             'password' => Hash::make('1'),
             'jenis_kelamin' => 'P',
-            'alamat' => 'kdr'
+            'alamat' => 'kdr',
+            'shift' => 'P'
+            
+            
             ],
             [
             'nik' => '00002',
@@ -32,15 +35,17 @@ class DatabaseSeeder extends Seeder
             'role' => '2',
             'password' => Hash::make('1'),
             'jenis_kelamin' => 'P',
-            'alamat' => 'mlg'
-            ],
+            'alamat' => 'mlg',
+            'shift' => 'P']
+            ,
             [
             'nik' => '00003',
             'nama' => 'PEGAWAI',
             'role' => '3',
             'password' => Hash::make('1'),
-            'jenis_kelamin' => 'P',
-            'alamat' => 'sby'
+            'jenis_kelamin' => 'L',
+            'alamat' => 'sby',
+            'shift' => 'M'
             ]]
         );
         $namaIDs = DB::table('karyawan')->pluck('id');
@@ -48,52 +53,43 @@ class DatabaseSeeder extends Seeder
         //TAMBAH DATA GAJI
         DB::table('absensi')->insert([
             [
-            'id_gaji' => 'GJ021',
-            'nama' => $namaIDs[0],
-            'keterangan' => "Kosong",
+            'id_absensi' => 'GJ021',
+            'id_user' => $namaIDs[0],
             'alpha' => 0,
-            'ijin' => 0,
             'sakit' => 0,
             ],
             [
-            'id_gaji' => 'GJ001',
-            'nama' => $namaIDs[2],
-            'keterangan' => "Kosong",
+            'id_absensi' => 'GJ001',
+            'id_user' => $namaIDs[2],
             'alpha' => 0,
-            'ijin' => 0,
             'sakit' => 0,
             ],
             [
-            'id_gaji' => 'GJ031',
-            'nama' => $namaIDs[1],
-            'keterangan' => "Kosong",
+            'id_absensi' => 'GJ031',
+            'id_user' => $namaIDs[1],
             'alpha' => 0,
-            'ijin' => 0,
             'sakit' => 0,
             ],
         ]
         );
-        $gajiIDs = DB::table('absensi')->pluck('id_gaji');
+        $gajiIDs = DB::table('absensi')->pluck('id_absensi');
         // echo($gajiIDs);
         // GAJI SEEDER
         DB::table('gaji')->insert([
             [
             'id_gaji' => '00001',
-            'nama_karyawan' => $namaIDs[0],
-            'absensi' => $gajiIDs[0],
-            'nominal' => 30000,
+            'id_user' => $namaIDs[0],
+            'jam_kerja_bulan' => 200,
             ],
             [
             'id_gaji' => '00002',
-            'nama_karyawan' => $namaIDs[1],
-            'absensi' => $gajiIDs[1],
-            'nominal' => 20000,
+            'id_user' => $namaIDs[0],
+            'jam_kerja_bulan' => 200,
             ],
             [
             'id_gaji' => '00003',
-            'nama_karyawan' => $namaIDs[1],
-            'absensi' => $gajiIDs[2],
-            'nominal' => 10000,
+            'id_user' => $namaIDs[0],
+            'jam_kerja_bulan' => 200,
             ],
             ]
         );

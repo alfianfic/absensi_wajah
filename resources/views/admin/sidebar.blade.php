@@ -48,7 +48,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/gaji_lembur">
+                <a class="nav-link" href="/menu_gaji">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Lembur</span></a>
             </li>

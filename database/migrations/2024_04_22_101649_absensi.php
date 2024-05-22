@@ -13,18 +13,19 @@ return new class extends Migration
     {
         // Gaji
         Schema::create("absensi", function (Blueprint $table) {
-            $table->string('id_gaji')->unique();
-            $table->unsignedBigInteger('nama');
-            $table->string('keterangan');
+            $table->string('id_absensi')->unique()->primary();
+            $table->unsignedBigInteger('id_user');
             $table->integer('alpha')->unsigned();
-            $table->integer('ijin')->unsigned();
             $table->integer('sakit')->unsigned();
             $table->date('tanggal')->nullable();
             $table->time('jam_kedatangan')->nullable();
             $table->time('jam_pulang')->nullable();
             $table->time('jam_lembur')->nullable();
+            $table->float("jam_perhari")->nullable();
+            $table->string("status_lembur")->default("0");
 
-            $table->foreign('nama')->references('id')->on('karyawan');
+
+            $table->foreign('id_user')->references('id')->on('karyawan'); 
         });
     }
 
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('absensi');
     }
 };

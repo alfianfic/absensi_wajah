@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create("jadwal",function (Blueprint $table){
-            $table->string('id')->unique();
-            $table->unsignedBigInteger('nama_karyawan');
-            $table->char('shift',1);
-            $table->integer('nominal');
+        // Schema::create("jadwal",function (Blueprint $table){
+        //     $table->string('id')->unique();
+        //     $table->unsignedBigInteger('nama_karyawan');
+        //     $table->char('shift',1);
 
-            $table->foreign('nama_karyawan')->references('id')->on('karyawan');
-        });
+        //     $table->foreign('nama_karyawan')->references('id')->on('karyawan');
+        // });
     }
 
     /**
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('jadwal');
     }
 };
