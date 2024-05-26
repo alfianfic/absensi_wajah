@@ -27,7 +27,7 @@ class Sql :
 
     def sql_connect(self):
         return self.db_connect
-    
+
     def update_data(self,):
         mycursor = self.db_connect.cursor()
         sql = "UPDATE absensi SET jam_kedatangan = %s WHERE nama = 2"
@@ -35,7 +35,7 @@ class Sql :
         mycursor.execute(sql, val)
         self.db_connect.commit()
         print(mycursor.rowcount, "Data berhasil diupdate...")
-        
+
 con = Sql()
 conn = con.sql_connect()
 # print(con)
@@ -59,25 +59,26 @@ while True:
 
     color = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    faces = faceDetector.detectMultiScale(color, 1.3,5)
+    faces = faceDetector.detectMultiScale(color, scaleFactor=1.3,minNeighbors=6 )
 
     for (x, y, w, h) in faces: #x,y bagian titik awal atas w,h untuk width dan height
         cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)    # membuat batas kotak
 
         id,conf = recogFace.predict(color[y:y+h,x:x+w])
-        
-        if id == 99 :
-            con.update_data()
-            time.sleep(3)
-            # break
-            # exit()
-            
-        if id == 26 :
-            con.update_data()
+        print(id)
+        print(conf)
+
+        if conf < 70:
+            id = f"User {id}"
+        else:
+            id = "Unknown"
+
+        # if id == 26 :
+        #     con.update_data()
             # time.sleep(3)
             # break
             # exit()
-            
+
 
         cv2.putText(frame,str(id),(x+00,y+0),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0)) # membuat tulisan
 
