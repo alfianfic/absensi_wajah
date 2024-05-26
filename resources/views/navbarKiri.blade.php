@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/beranda">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -24,34 +24,23 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/absensi_karyawan">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Absensi</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Karyawan</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Jadwal</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/gaji">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Gaji</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/izin">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Lembur</span></a>
+                    <span>Izin</span></a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

@@ -19,11 +19,15 @@ Route::get('/test', [UserController::class, 'test'])->middleware('auth');
 Route::get('/beranda', [PegawaiController::class, 'beranda'])->middleware('pegawai');
 Route::get('/izin', [PegawaiController::class, 'izin'])->middleware('pegawai');
 Route::get('/gaji', [PegawaiController::class, 'gaji'])->middleware('pegawai');
+Route::get('/absensi_karyawan', [PegawaiController::class, 'absensi'])->middleware('pegawai');
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware('auth');
 Route::get('/kelola_karyawan', [AdminController::class, 'kelola_karyawan'])->middleware('admin');
 Route::get('/tambah_karyawan', [AdminController::class, 'tambah_karyawan'])->middleware('admin');
-Route::get('/edit_karyawan', [AdminController::class, 'edit_karyawan'])->middleware('admin');
+Route::post('/tambah_karyawan', [AdminController::class, 'store_karyawan'])->name("tambah_karyawan")->middleware('admin');
+Route::get('/edit_karyawan/{id}', [AdminController::class, 'edit_karyawan'])->middleware('admin');
+Route::delete('/delete_karyawan/{id}', [AdminController::class, 'delete_karyawan'])->middleware('admin');
+
 Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middleware('admin');
 Route::get('/absensi', [AdminController::class, 'absensi'])->middleware('admin');
 Route::get('/kelola_jadwal', [AdminController::class, 'kelola_jadwal'])->middleware('admin');

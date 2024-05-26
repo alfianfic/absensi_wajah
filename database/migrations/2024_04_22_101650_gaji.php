@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('jam_kerja_bulan');
             $table->integer('bulan')->nullable();
             $table->integer('tahun')->nullable();
+            $table->integer("total_gaji")->nullable();
 
         });
     }

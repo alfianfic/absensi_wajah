@@ -19,9 +19,16 @@ class User extends Authenticatable
     protected $table='karyawan';
     protected $guarded =['id'];
     protected $fillable = [
-        'name',
-        'email',
+        'nik',
+        'nama',
+        'jenis_kelamin',
+        'alamat',
+        'no_hp',
+        'autentikasi_wajah',
+        'role',
+        'bekerja',
         'password',
+        'shift'
     ];
 
     /**
