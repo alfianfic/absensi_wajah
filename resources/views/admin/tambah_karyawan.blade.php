@@ -9,7 +9,7 @@
     <!-- Form untuk tambah karyawan -->
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ route('tambah_karyawan') }}" method="POST">
+            <form action="{{ route('tambah_karyawan') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="nik">NIK:</label>

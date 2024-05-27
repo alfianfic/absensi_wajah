@@ -27,6 +27,7 @@ class AdminController extends Controller
 
     public function store_karyawan(Request $request)
     {
+        // dd($request);
         // Validasi data yang masuk
         $validatedData = $request->validate([
             'nik' => 'required|unique:karyawan,nik|max:16',
@@ -37,9 +38,22 @@ class AdminController extends Controller
             'authentifikasi_wajah' => 'nullable|file|mimes:jpg,jpeg,png',
             'role' => 'required|integer',
             'bekerja' => 'required|boolean',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string',
             'shift' => 'required|in:1,2,3',
-        ]);
+        ],
+        [
+            'nik.required' => 'Error',
+            'nama.required' => 'Error',
+            'jenis_kelamin.required' => 'Error',
+            'alamat.required' => 'Error',
+            'no_hp.required' => 'Error',
+            'authentifikasi_wajah.required' => 'Error',
+            'role.required' => 'Error',
+            'bekerja.required' => 'Error',
+            'password.required' => 'Error',
+            'shift.required' => 'Error',
+        ]
+    );
 
         // Upload file jika ada
         if ($request->hasFile('authentifikasi_wajah')) {
@@ -53,10 +67,14 @@ class AdminController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         // Buat data karyawan baru
-        User::create($validatedData);
+        $succ = User::create($validatedData);
 
         // Redirect kembali ke halaman kelola karyawan dengan pesan sukses
-        return redirect('/kelola_karyawan')->with('success', 'Karyawan berhasil ditambahkan');
+        if ($succ){
+            return redirect('/kelola_karyawan')->with('success', 'Karyawan berhasil ditambahkan');
+        } else {
+            return back();
+        }
     }
 
 
