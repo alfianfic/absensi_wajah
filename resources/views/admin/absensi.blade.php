@@ -23,6 +23,25 @@
                         <th>Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach ( $users  as $user)
+                    {{-- @dd($user->id_user) --}}
+
+                        <tr>
+                            <td>foto</td>
+                            <td>{{ $user->id_user }}</td>
+                            <td>{{ $user->tanggal }}</td>
+                            <td>{{ $user->alpha }}</td>
+                            <td>{{ $user->sakit }}</td>
+                            <td>{{ $user->jam_kedatangan }}</td>
+                            <td>{{ $user->jam_pulang }}</td>
+                            <td>{{ $user->jam_perhari }}</td>
+                            <td>{{ $user->status_lembur }}</td>
+                            <td>{{ $user->jam_lembur }}</td>
+                            <td>AKSI</td>
+                        </tr>
+                    @endforeach
+                </tbody>
                 <tfoot>
                     <tr>
                         <th>Foto</th>

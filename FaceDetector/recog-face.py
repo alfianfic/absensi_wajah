@@ -74,7 +74,7 @@ while True:
 
         print(f"ID: {id}, Confidence: {conf}")
 
-        if conf < 95: #confidience lebih kecil lebih akurat
+        if conf < 100: #confidience lebih kecil lebih akurat
             user_id = id
             con.update_data(user_id)  # Update data ke database
             name = f"User {id}"

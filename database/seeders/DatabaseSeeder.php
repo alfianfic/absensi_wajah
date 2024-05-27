@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
             'jenis_kelamin' => 'P',
             'alamat' => 'kdr',
             'shift' => 'P'
-            
-            
+
+
             ],
             [
             'nik' => '00002',
@@ -53,19 +53,16 @@ class DatabaseSeeder extends Seeder
         //TAMBAH DATA GAJI
         DB::table('absensi')->insert([
             [
-            'id_absensi' => 'GJ021',
             'id_user' => $namaIDs[0],
             'alpha' => 0,
             'sakit' => 0,
             ],
             [
-            'id_absensi' => 'GJ001',
             'id_user' => $namaIDs[2],
             'alpha' => 0,
             'sakit' => 0,
             ],
             [
-            'id_absensi' => 'GJ031',
             'id_user' => $namaIDs[1],
             'alpha' => 0,
             'sakit' => 0,

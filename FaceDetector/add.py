@@ -50,7 +50,7 @@ while True:
     # Hentikan program dengan menekan tombol 'q' atau setelah 30 wajah ditangkap
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-    if a >= 30:
+    if a >= 50:
         break
 
 # Tutup webcam dan jendela OpenCV

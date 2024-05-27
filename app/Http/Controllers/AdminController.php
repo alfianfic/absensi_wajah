@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -78,7 +80,10 @@ class AdminController extends Controller
 
     public function absensi()
     {
-        return view('admin.absensi');
+        $users = DB::select('select * from absensi');
+        return view('admin.absensi',[
+            'users' => $users,
+        ]);
     }
 
     public function menu_jadwal()
