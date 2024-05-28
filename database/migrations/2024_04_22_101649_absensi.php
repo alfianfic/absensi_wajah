@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('tanggal')->nullable()->default(DB::raw('CURRENT_DATE'));
             $table->time('jam_kedatangan')->nullable()->default("00:00:00");
             $table->time('jam_pulang')->nullable()->default("00:00:00");
-            $table->time('jam_lembur')->nullable()->default("00:00:00");
+            $table->float('jam_lembur')->nullable()->default("0.0");
             $table->float("jam_perhari")->nullable()->default("0.0");
             $table->string("status_lembur")->default("0");
 

@@ -1,4 +1,4 @@
-@extends('admin.home')
+@extends('master')
 @section('title','Edit Karyawan')
 @section('isi')
 <div class="container-fluid">
