@@ -40,20 +40,21 @@ class AdminController extends Controller
             'bekerja' => 'required|boolean',
             'password' => 'required|string',
             'shift' => 'required|in:1,2,3',
-        ],
-        [
-            'nik.required' => 'Error',
-            'nama.required' => 'Error',
-            'jenis_kelamin.required' => 'Error',
-            'alamat.required' => 'Error',
-            'no_hp.required' => 'Error',
-            'authentifikasi_wajah.required' => 'Error',
-            'role.required' => 'Error',
-            'bekerja.required' => 'Error',
-            'password.required' => 'Error',
-            'shift.required' => 'Error',
-        ]
-    );
+        ], [
+            'nik.required' => 'NIK harus diisi',
+            'nik.unique' => 'NIK sudah terdaftar',
+            'nik.max' => 'NIK maksimal 16 karakter',
+            'nama.required' => 'Nama harus diisi',
+            'jenis_kelamin.required' => 'Jenis kelamin harus diisi',
+            'alamat.required' => 'Alamat harus diisi',
+            'no_hp.required' => 'No HP harus diisi',
+            'authentifikasi_wajah.required' => 'Authentifikasi wajah harus diisi',
+            'role.required' => 'Role harus diisi',
+            'bekerja.required' => 'Status bekerja harus diisi',
+            'password.required' => 'Password harus diisi',
+            'shift.required' => 'Shift harus diisi',
+        ]);
+        
 
         // Upload file jika ada
         if ($request->hasFile('authentifikasi_wajah')) {

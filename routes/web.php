@@ -34,3 +34,6 @@ Route::get('/kelola_jadwal', [AdminController::class, 'kelola_jadwal'])->middlew
 Route::get('/menu_gaji', [AdminController::class, 'menu_gaji'])->middleware('admin');
 
 Route::get('/karyawan', [PegawaiController::class, "beranda"]);
+Route::get('/video_feed', function () {
+    return redirect('http://127.0.0.1:5000/video_feed'); // Adjust the URL if Flask is running on a different port
+});

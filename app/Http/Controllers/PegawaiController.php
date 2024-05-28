@@ -16,7 +16,7 @@ class PegawaiController extends Controller
     }
     public function absensi()
     {
-        return view('pegawai.absensi');
+        return view('pegawai.absen');
     }
     public function gaji()
     {

@@ -42,22 +42,6 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Alpha</th>
-                        <th>Sakit</th>
-                        <th>Masuk</th>
-                        <th>Pulang</th>
-                        <th>Jam Kerja</th>
-                        <th>Status Lembur</th>
-                        <th>Jam Lembur</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-
             </table>
         </div>
     </div>
