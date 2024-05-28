@@ -54,7 +54,7 @@ class AdminController extends Controller
             'password.required' => 'Password harus diisi',
             'shift.required' => 'Shift harus diisi',
         ]);
-        
+
 
         // Upload file jika ada
         if ($request->hasFile('authentifikasi_wajah')) {
@@ -85,6 +85,12 @@ class AdminController extends Controller
         return view('admin.edit_karyawan', compact('employee'));
     }
 
+    public function edit_presensi($id)
+    {
+        $presensi = User::findOrFail($id);
+        return view('admin.edit_presensi', compact('presensi'));
+    }
+
     public function delete_karyawan($id)
     {
         $employee = User::findOrFail($id);
@@ -97,7 +103,7 @@ class AdminController extends Controller
         return view('admin.val_izin');
     }
 
-    public function absensi()
+    public function presensi()
     {
         $users = DB::select('select * from absensi');
         return view('admin.absensi',[

@@ -24,7 +24,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="/absensi">
+                <a class="nav-link" href="/presensi">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Presensi</span></a>
             </li>

@@ -1,9 +1,9 @@
 @extends('admin.home')
-@section('title','Absensi')
+@section('title','Presensi')
 @section('isi')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Absensi</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Presensi</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -36,9 +36,11 @@
                             <td>{{ $user->jam_kedatangan }}</td>
                             <td>{{ $user->jam_pulang }}</td>
                             <td>{{ $user->jam_perhari }}</td>
-                            <td>{{ $user->status_lembur }}</td>
+                            <td>{{ '0'===$user->status_lembur ?  'tidak lembur' : 'lembur'  }}</td>
                             <td>{{ $user->jam_lembur }}</td>
-                            <td>AKSI</td>
+                            <td>
+                                <a href="/edit_presensi/{{ $user->id_user }}" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

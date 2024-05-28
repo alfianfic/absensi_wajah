@@ -1,10 +1,10 @@
-@extends('admin.home')
+@extends('master')
 @section('title','Tambah Karyawan')
 @section('isi')
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tambah Karyawan</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Presensi</h1>
 
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -22,7 +22,7 @@
             <form action="{{ route('tambah_karyawan') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="nik">NIK:</label>
+                    <label for="nik">Foto:</label>
                     <input type="text" class="form-control" id="nik" name="nik" value="{{ old('nik') }}" required>
                     @error('nik')
                         <div class="error text-danger">{{ $message }}</div>
@@ -46,7 +46,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat:</label>
+                    <label for="alamat">Tanggal:</label>
                     <textarea class="form-control" id="alamat" name="alamat" required>{{ old('alamat') }}</textarea>
                     @error('alamat')
                         <div class="error text-danger">{{ $message }}</div>
