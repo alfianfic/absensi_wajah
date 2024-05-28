@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
     {
 
         //TAMBAH DATA USER
-        DB::table('karyawan')->insert([
+        DB::table('karyawan')->insert(
+        [
             [
             'nik' => '00001',
             'nama' => 'ADMIN',
@@ -40,13 +41,54 @@ class DatabaseSeeder extends Seeder
             ,
             [
             'nik' => '00003',
-            'nama' => 'PEGAWAI',
+            'nama' => 'ANFI',
             'role' => '3',
             'password' => Hash::make('1'),
             'jenis_kelamin' => 'L',
             'alamat' => 'sby',
             'shift' => 'M'
-            ]]
+            ]
+            ,
+            [
+            'nik' => '00004',
+            'nama' => 'ZUL',
+            'role' => '3',
+            'password' => Hash::make('1'),
+            'jenis_kelamin' => 'L',
+            'alamat' => 'sby',
+            'shift' => 'M'
+            ]
+            ,
+            [
+            'nik' => '00005',
+            'nama' => 'FANDI',
+            'role' => '3',
+            'password' => Hash::make('1'),
+            'jenis_kelamin' => 'L',
+            'alamat' => 'sby',
+            'shift' => 'M'
+            ]
+            ,
+            [
+            'nik' => '00006',
+            'nama' => 'JUN',
+            'role' => '3',
+            'password' => Hash::make('1'),
+            'jenis_kelamin' => 'L',
+            'alamat' => 'sby',
+            'shift' => 'M'
+            ]
+            ,
+            [
+            'nik' => '00007',
+            'nama' => 'VIOTA',
+            'role' => '3',
+            'password' => Hash::make('1'),
+            'jenis_kelamin' => 'L',
+            'alamat' => 'sby',
+            'shift' => 'M'
+            ]
+        ]
         );
         $namaIDs = DB::table('karyawan')->pluck('id');
 
@@ -80,7 +122,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
             'id_gaji' => '00002',
-            'id_user' => $namaIDs[0],
+            'id_user' => $namaIDs[1],
             'jam_kerja_bulan' => 200,
             ],
             [

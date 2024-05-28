@@ -6,7 +6,7 @@
     </button>
 
     <!-- Topbar Search -->
-    <form
+    {{-- <form
         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -17,7 +17,7 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form> --}}
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -59,18 +59,17 @@
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="profil">
+                <a class="dropdown-item" href="/profil">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <form action="/logout" method="post">
-                    @csrf
+                {{-- <form action="/logout" method="post"> --}}
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" type="submit" >
+                    <button class="dropdown-item" type="submit" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                     </button>
-                </form>
+                {{-- </form> --}}
             </div>
         </li>
 
