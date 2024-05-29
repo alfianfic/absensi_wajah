@@ -18,7 +18,7 @@ Route::get('/test', [UserController::class, 'test'])->middleware('auth');
 
 Route::get('/beranda', [PegawaiController::class, 'beranda'])->middleware('pegawai');
 Route::get('/izin', [PegawaiController::class, 'izin'])->middleware('pegawai');
-Route::post('/upload-izin', [PegawaiController::class, 'uploadIzin'])->middleware('pegawai');
+Route::post('/uploadIzin', [PegawaiController::class, 'uploadIzin'])->middleware('pegawai');
 Route::get('/gaji', [PegawaiController::class, 'gaji'])->middleware('pegawai');
 Route::get('/absensi_karyawan', [PegawaiController::class, 'absensi'])->middleware('pegawai');
 

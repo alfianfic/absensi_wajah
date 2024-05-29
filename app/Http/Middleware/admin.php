@@ -16,6 +16,16 @@ class admin
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check() || !(auth()->user()->role === 1)) {
+            echo("
+            <script>
+            function pindahLink(url) {
+                if (window.confirm('Silahkan Login Dahulu?')) {
+                  window.location.href = url;
+                }
+              };
+            pindahLink('/login');
+            </script>
+            ");
             abort(403);
         }
         return $next($request);

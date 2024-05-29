@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('izin', function (Blueprint $table) {
-            $table->string("id_izin")->primary()->unique();
+            $table->id('id_izin')->primary()->autoIncrement();
             $table->unsignedBigInteger('id_user');
             $table->string("file_izin");
             $table->boolean("status")->default(0);

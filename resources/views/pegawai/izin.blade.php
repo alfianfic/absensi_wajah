@@ -28,6 +28,13 @@
                             <th><img src="https://awsimages.detik.net.id/community/media/visual/2023/04/12/surat-dinas-2_169.jpeg?w=650" alt=""></th>
                             <th>Terverifikasi</th>
                         </tr>
+                        @foreach ( $users  as $user)
+                        <tr>
+                            <th>{{ $user->tgl }}</th>
+                            <th><img src="{{ asset('storage/app/public/uploads/1716821784_cover_2.png') }}" alt="Izin"></th>
+                            <th>Terverifikasi</th>
+                        </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
@@ -53,9 +60,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="{{ route('upload-foto') }}" enctype="multipart/form-data">
+            <form method="POST" action="/uploadIzin" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
+                    <input type="hidden" name="id_user" value="{{ Auth::user()->nik }}">
                     <div class="form-group">
                         <label for="file">Pilih File</label>
                         <input type="file" class="form-control" id="file" name="file" required>

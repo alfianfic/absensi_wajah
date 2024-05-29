@@ -16,6 +16,16 @@ class pegawai
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check() || !(auth()->user()->role === 3)) {
+            echo("
+            <script>
+            function pindahLink(url) {
+                if (window.confirm('Silahkan Login Dahulu?')) {
+                  window.location.href = url;
+                }
+              };
+            pindahLink('/login');
+            </script>
+            ");
             abort(403);
         }
         return $next($request);
