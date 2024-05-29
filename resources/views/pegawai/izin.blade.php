@@ -17,17 +17,24 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Surat</th>
-                            <th>Action</th>
+                            <th>Tanggal</th>
+                            <th>File Izin</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th>Surat</th>
-                            <th>Action</th>
+                            <th>31/03/32</th>
+                            <th><img src="https://awsimages.detik.net.id/community/media/visual/2023/04/12/surat-dinas-2_169.jpeg?w=650" alt=""></th>
+                            <th>Terverifikasi</th>
                         </tr>
                     </tbody>
                     <tfoot>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>File Izin</th>
+                            <th>Status</th>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
@@ -46,7 +53,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('upload-foto') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
