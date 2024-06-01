@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string("status_lembur")->default("0");
 
 
-            $table->foreign('id_user')->references('id')->on('karyawan');
+            $table->foreign('id_user')->references('id')->on('karyawan')->onDelete('cascade');
         });
     }
 

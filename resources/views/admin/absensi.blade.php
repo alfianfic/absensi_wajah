@@ -10,9 +10,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Foto</th>
-                        <th>Nama</th>
                         <th>Tanggal</th>
+                        <th>Nama</th>
                         <th>Alpha</th>
                         <th>Sakit</th>
                         <th>Masuk</th>
@@ -24,25 +23,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $users  as $user)
-                    {{-- @dd($user->id_user) --}}
-
-                        <tr>
-                            <td>foto</td>
-                            <td>{{ $user->id_user }}</td>
-                            <td>{{ $user->tanggal }}</td>
-                            <td>{{ $user->alpha }}</td>
-                            <td>{{ $user->sakit }}</td>
-                            <td>{{ $user->jam_kedatangan }}</td>
-                            <td>{{ $user->jam_pulang }}</td>
-                            <td>{{ $user->jam_perhari }}</td>
-                            <td>{{ '0'===$user->status_lembur ?  'tidak lembur' : 'lembur'  }}</td>
-                            <td>{{ $user->jam_lembur }}</td>
-                            <td>
-                                <a href="/edit_presensi/{{ $user->id_user }}" class="btn btn-warning btn-sm">Edit</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    @foreach ($absensiRecords as $absensi)
+                    <tr>
+                        <td>{{ $absensi->tanggal }}</td>
+                        <td>{{ $absensi->user->nama }}</td> <!-- Display the user's name -->
+                        <td>{{ $absensi->alpha }}</td>
+                        <td>{{ $absensi->sakit }}</td>
+                        <td>{{ $absensi->jam_kedatangan }}</td>
+                        <td>{{ $absensi->jam_pulang }}</td>
+                        <td>{{ $absensi->jam_perhari }}</td>
+                        <td>{{ $absensi->status_lembur === '0' ? 'Tidak Lembur' : 'Lembur' }}</td>
+                        <td>{{ $absensi->jam_lembur }}</td>
+                        <td>
+                            <a href="/edit_presensi/{{ $absensi->id }}" class="btn btn-warning btn-sm">Edit</a>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

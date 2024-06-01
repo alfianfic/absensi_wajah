@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Absensi;
 class AdminController extends Controller
 {
     public function dashboard()
@@ -81,9 +81,50 @@ class AdminController extends Controller
 
     public function edit_karyawan($id)
     {
-        $employee = User::findOrFail($id);
-        return view('admin.edit_karyawan', compact('employee'));
+        $karyawan = User::findOrFail($id);
+        return view('admin.edit_karyawan', compact('karyawan'));
     }
+
+    public function update_karyawan(Request $request, $id){
+        $request->validate([
+            'nik' => 'required|unique:karyawan,nik,'.$id,
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:L,P',
+            'alamat' => 'required|string',
+            'no_hp' => 'required|string|max:15',
+            'authentifikasi_wajah' => 'nullable|file|image|max:2048',
+            'role' => 'required|in:1,2,3',
+            'bekerja' => 'required|boolean',
+            'shift' => 'required|in:1,2',
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        $karyawan = User::findOrFail($id);
+        $karyawan->nik = $request->nik;
+        $karyawan->nama = $request->nama;
+        $karyawan->jenis_kelamin = $request->jenis_kelamin;
+        $karyawan->alamat = $request->alamat;
+        $karyawan->no_hp = $request->no_hp;
+        $karyawan->role = $request->role;
+        $karyawan->bekerja = $request->bekerja;
+        $karyawan->shift = $request->shift;
+
+        if ($request->hasFile('authentifikasi_wajah')) {
+            // Handle file upload
+            $file = $request->file('authentifikasi_wajah');
+            $path = $file->store('public/authentifikasi_wajah');
+            $karyawan->authentifikasi_wajah = $path;
+        }
+
+        if ($request->password) {
+            $karyawan->password = bcrypt($request->password);
+        }
+
+        $karyawan->save();
+
+        return redirect()->route('kelola_karyawan')->with('success', 'Karyawan updated successfully');
+        }
+
 
     public function edit_presensi($id)
     {
@@ -98,6 +139,12 @@ class AdminController extends Controller
         return redirect('/kelola_karyawan')->with('success', 'Karyawan berhasil dihapus');
     }
 
+    public function jumlah_karyawan()
+{
+    $jumlahKaryawan = User::count();
+    return view('admin.dashboard', compact('jumlahKaryawan'));
+}
+
     public function validasi_izin()
     {
         return view('admin.val_izin');
@@ -105,10 +152,12 @@ class AdminController extends Controller
 
     public function presensi()
     {
-        $users = DB::select('select * from absensi');
-        return view('admin.absensi',[
-            'users' => $users,
-        ]);
+        // $users = DB::select('select * from absensi');
+        // return view('admin.absensi',[
+        //     'users' => $users,
+        // ]);
+        $absensiRecords = Absensi::with('user')->get();
+        return view('admin.absensi', compact('absensiRecords'));
     }
 
     public function menu_jadwal()
