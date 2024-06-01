@@ -26,7 +26,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/absensi_karyawan">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Absensi</span></a>
+                    <span>Presensi</span></a>
             </li>
 
             <li class="nav-item">

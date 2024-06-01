@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IzinController;
 
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'auth']);
@@ -29,7 +30,9 @@ Route::post('/tambah_karyawan', [AdminController::class, 'store_karyawan'])->nam
 Route::get('/edit_karyawan/{id}', [AdminController::class, 'edit_karyawan'])->name('edit_karyawan')->middleware('admin');
 Route::post('/update_karyawan/{id}', [AdminController::class, 'update_karyawan'])->name('update_karyawan')->middleware('admin');
 Route::delete('/delete_karyawan/{id}', [AdminController::class, 'delete_karyawan'])->middleware('admin');
+// Route::get('/admin/validasi-izin', [AdminController::class, 'showIzin'])->name('admin.showIzin');
 
+Route::post('/admin/validasi-izin/{id}', [AdminController::class, 'validasiIzin'])->name('validasiIzin')->middleware('admin');
 Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middleware('admin');
 Route::get('/edit_presensi/{id}', [AdminController::class, 'edit_presensi'])->middleware('admin');
 Route::get('/presensi', [AdminController::class, 'presensi'])->middleware('admin');
@@ -40,3 +43,6 @@ Route::get('/karyawan', [PegawaiController::class, "beranda"]);
 Route::get('/video_feed', function () {
     return redirect('http://127.0.0.1:5000/video_feed'); // Adjust the URL if Flask is running on a different port
 });
+
+Route::get('/create-izin', [IzinController::class, 'create'])->name('create-izin');
+Route::post('/store-izin', [IzinController::class, 'store'])->name('store-izin');

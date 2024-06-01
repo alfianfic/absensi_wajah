@@ -4,7 +4,7 @@
 @section('title', 'Absensi Karyawan')
 @section('isi')
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Absensi Karyawan</h1>
+    <h1 class="h3 mb-2 text-gray-800">Presensi Karyawan</h1>
     {{-- <p>Tanggal: {{ $date }}</p> --}}
     
     <button id="checkInBtn" class="btn btn-primary" onclick="openWebcam('check-in')">Check In</button>

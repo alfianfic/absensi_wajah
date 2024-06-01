@@ -1,7 +1,7 @@
 @extends('master')
 @section('title', 'Izin')
 @section('isi')
-<div class="container-fluid">
+{{-- <div class="container-fluid">
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Surat Perizinan</h1>
@@ -23,11 +23,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>31/03/32</th>
-                            <th><img src="https://awsimages.detik.net.id/community/media/visual/2023/04/12/surat-dinas-2_169.jpeg?w=650" alt=""></th>
-                            <th>Terverifikasi</th>
-                        </tr>
                         @foreach ( $users  as $user)
                         <tr>
                             <th>{{ $user->tgl }}</th>
@@ -36,13 +31,6 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>File Izin</th>
-                            <th>Status</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
@@ -76,5 +64,33 @@
             </form>
         </div>
     </div>
+</div> --}}
+<div class="container">
+    <h1>Upload Surat Izin</h1>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('store-izin') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="file_izin">Upload Surat Izin (jpg, png)</label>
+            <input type="file" class="form-control" id="file_izin" name="file_izin" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 @endsection

@@ -21,17 +21,26 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach ($izinList as $izin)
                         <tr>
-                            <th>Nama</th>
-                            <th>Surat</th>
-                            <th>Action</th>
+                            <td>{{ $izin->user->nama }}</td>
+                            <td>
+                                <a href="{{ asset($izin->file_izin) }}" target="_blank">Lihat Surat</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('validasiIzin', $izin->id_izin) }}" method="post">
+                                    @csrf
+                                    <button type="submit" name="status" value="1" class="btn btn-success">Validasi</button>
+                                    <button type="submit" name="status" value="0" class="btn btn-danger">Tolak</button>
+                                </form>
+                            </td>
                         </tr>
-                    <tfoot>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </div>
 @endsection

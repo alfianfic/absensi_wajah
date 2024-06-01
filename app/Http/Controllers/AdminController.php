@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App\Models\Izin;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Absensi;
@@ -147,7 +148,38 @@ class AdminController extends Controller
 
     public function validasi_izin()
     {
-        return view('admin.val_izin');
+        $izinList = Izin::with('user')->get();
+        return view('admin.val_izin',compact('izinList'));
+    }
+
+    public function validasiIzin(Request $request, $id)
+    {
+        $izin = Izin::findOrFail($id);
+        $status = $request->input('status'); // 1 untuk diterima, 0 untuk ditolak
+
+        if ($status == 1) {
+            $izin->status = 1;
+            $izin->save();
+
+            // Update tabel absensi
+            Absensi::create([
+                'id_user' => $izin->id_user,
+                'tanggal' => $izin->tgl,
+                'sakit' => 8,
+            ]);
+        } else {
+            $izin->status = 0;
+            $izin->save();
+
+            // Update tabel absensi
+            Absensi::create([
+                'id_user' => $izin->id_user,
+                'tanggal' => $izin->tgl,
+                'alpha' => 8,
+            ]);
+        }
+
+        return redirect('/validasi_izin')->with('success', 'Surat izin berhasil divalidasi.');
     }
 
     public function presensi()
