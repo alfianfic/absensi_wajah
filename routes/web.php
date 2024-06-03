@@ -41,7 +41,7 @@ Route::get('/menu_gaji', [AdminController::class, 'menu_gaji'])->middleware('adm
 
 Route::get('/karyawan', [PegawaiController::class, "beranda"]);
 Route::get('/video_feed', function () {
-    return redirect('http://127.0.0.1:5000/video_feed'); // Adjust the URL if Flask is running on a different port
+    return response()->redirectTo('http://127.0.0.1:5000/video_feed');
 });
 
 Route::get('/create-izin', [IzinController::class, 'create'])->name('create-izin');

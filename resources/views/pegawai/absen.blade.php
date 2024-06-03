@@ -3,7 +3,7 @@
 @section('isi')
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800">Absensi Karyawan</h1>
-    
+
     <button id="checkInBtn" class="btn btn-primary" onclick="openWebcam('check-in')">Check In</button>
     <button id="checkOutBtn" class="btn btn-secondary" onclick="openWebcam('check-out')">Check Out</button>
 
@@ -35,8 +35,6 @@
 <script>
     function openWebcam(action) {
         $('#webcamModal').modal('show');
-        window.currentAction = action;
-
         if (action === 'check-in') {
             checkInUser();
         } else if (action === 'check-out') {
@@ -48,14 +46,11 @@
         $.ajax({
             url: 'http://127.0.0.1:5000/check_in',
             type: 'POST',
-            data: {
-                user_id: 1  // Replace with dynamic user ID as needed
-            },
             success: function(response) {
-                alert(response.message);
+                console.log(response.message);
             },
             error: function(error) {
-                alert('Error during check-in');
+                console.error('Error during check-in');
             }
         });
     }
@@ -64,14 +59,11 @@
         $.ajax({
             url: 'http://127.0.0.1:5000/check_out',
             type: 'POST',
-            data: {
-                user_id: 1  // Replace with dynamic user ID as needed
-            },
             success: function(response) {
-                alert(response.message);
+                console.log(response.message);
             },
             error: function(error) {
-                alert('Error during check-out');
+                console.error('Error during check-out');
             }
         });
     }
