@@ -1,5 +1,5 @@
 @extends('admin.home')
-@section('title','Presensi')
+@section('title', 'Presensi')
 @section('isi')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -26,7 +26,7 @@
                     @foreach ($absensiRecords as $absensi)
                     <tr>
                         <td>{{ $absensi->tanggal }}</td>
-                        <td>{{ $absensi->user->nama }}</td> <!-- Display the user's name -->
+                        <td>{{ $absensi->user->nama }}</td>
                         <td>{{ $absensi->alpha }}</td>
                         <td>{{ $absensi->sakit }}</td>
                         <td>{{ $absensi->jam_kedatangan }}</td>
@@ -35,10 +35,10 @@
                         <td>{{ $absensi->status_lembur === '0' ? 'Tidak Lembur' : 'Lembur' }}</td>
                         <td>{{ $absensi->jam_lembur }}</td>
                         <td>
-                            <a href="/edit_presensi/{{ $absensi->id }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/edit_presensi/{{ $absensi->id_absensi }}" class="btn btn-warning btn-sm">Edit</a>
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>

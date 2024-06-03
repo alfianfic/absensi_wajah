@@ -14,7 +14,7 @@ class Absensi extends Model
     protected $fillable =[
         'id_absensni',
         'id_user',
-        'aplha',
+        'alpha',
         'sakit',
         'tanggal',
         'jam_kedatangan',

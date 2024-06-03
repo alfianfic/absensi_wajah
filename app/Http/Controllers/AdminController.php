@@ -127,10 +127,40 @@ class AdminController extends Controller
         }
 
 
+    // public function edit_presensi($id)
+    // {
+    //     $presensi = User::findOrFail($id);
+    //     return view('admin.edit_presensi', compact('presensi'));
+    // }
+    public function presensi()
+    {
+        $absensiRecords = Absensi::with('user')->get();
+        return view('admin.absensi', compact('absensiRecords'));
+    }
     public function edit_presensi($id)
     {
-        $presensi = User::findOrFail($id);
-        return view('admin.edit_presensi', compact('presensi'));
+        $absensi = Absensi::findOrFail($id);
+        return view('admin.edit_presensi', compact('absensi'));
+    }
+
+    // Method to handle the update
+    public function update_presensi(Request $request, $id)
+    {
+        $request->validate([
+            'tanggal' => 'required|date',
+            'alpha' => 'required|integer',
+            'sakit' => 'required|integer',
+            'jam_kedatangan' => 'required|date_format:H:i',
+            'jam_pulang' => 'required|date_format:H:i',
+            'jam_perhari' => 'required|integer',
+            'status_lembur' => 'required|boolean',
+            'jam_lembur' => 'nullable|integer',
+        ]);
+
+        $absensi = Absensi::findOrFail($id);
+        $absensi->update($request->all());
+
+        return redirect('/presensi')->with('success', 'Presensi updated successfully');
     }
 
     public function delete_karyawan($id)
@@ -182,15 +212,7 @@ class AdminController extends Controller
         return redirect('/validasi_izin')->with('success', 'Surat izin berhasil divalidasi.');
     }
 
-    public function presensi()
-    {
-        // $users = DB::select('select * from absensi');
-        // return view('admin.absensi',[
-        //     'users' => $users,
-        // ]);
-        $absensiRecords = Absensi::with('user')->get();
-        return view('admin.absensi', compact('absensiRecords'));
-    }
+
 
     public function menu_jadwal()
     {

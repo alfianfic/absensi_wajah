@@ -30,12 +30,17 @@ Route::post('/tambah_karyawan', [AdminController::class, 'store_karyawan'])->nam
 Route::get('/edit_karyawan/{id}', [AdminController::class, 'edit_karyawan'])->name('edit_karyawan')->middleware('admin');
 Route::post('/update_karyawan/{id}', [AdminController::class, 'update_karyawan'])->name('update_karyawan')->middleware('admin');
 Route::delete('/delete_karyawan/{id}', [AdminController::class, 'delete_karyawan'])->middleware('admin');
+// routes/web.php
+Route::get('/presensi', [AdminController::class, 'presensi'])->name('presensi')->middleware('admin');
+Route::get('/edit_presensi/{id}', [AdminController::class, 'edit_presensi'])->name('editpresensi')->middleware('admin');
+Route::post('/update_presensi/{id}', [AdminController::class, 'update_presensi'])->name('updatepresensi')->middleware('admin');
+
 // Route::get('/admin/validasi-izin', [AdminController::class, 'showIzin'])->name('admin.showIzin');
 
 Route::post('/admin/validasi-izin/{id}', [AdminController::class, 'validasiIzin'])->name('validasiIzin')->middleware('admin');
 Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middleware('admin');
 Route::get('/edit_presensi/{id}', [AdminController::class, 'edit_presensi'])->middleware('admin');
-Route::get('/presensi', [AdminController::class, 'presensi'])->middleware('admin');
+
 Route::get('/kelola_jadwal', [AdminController::class, 'kelola_jadwal'])->middleware('admin');
 Route::get('/menu_gaji', [AdminController::class, 'menu_gaji'])->middleware('admin');
 

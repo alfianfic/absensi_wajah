@@ -20,4 +20,11 @@ class PegawaiController extends Controller
     {
         return view('pegawai.gaji');
     }
+    public function izin()
+    {
+        $users = DB::select('select * from IZIN');
+        return view('pegawai.izin',[
+            'users' => $users,
+        ]);
+    }
 }
