@@ -22,14 +22,22 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach ( $users  as $user)
+                        <tr>
+                            <th>{{ $user->jam_kerja_bulan }} Jam / Bulan</th>
+                            <th>Rp {{ number_format($user->total_gaji , 0, ',', '.')}}</th>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
                         <tr>
                             <th>Nama</th>
                             <th>Total Presensi</th>
                             <th>Nominal</th>
                             <th>Action</th>
                         </tr>
-                    <tfoot>
-                    </tbody>
+                    </tfoot>
                 </table>
             </div>
         </div>

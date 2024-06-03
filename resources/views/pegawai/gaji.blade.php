@@ -16,20 +16,26 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Bulan</th>
+                            <th>Bulan / Tahun</th>
                             <th>Total Presensi</th>
                             <th>Nominal</th>
-                            <th>Action</th>
+                            {{-- <th>Action</th> --}}
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach ( $users  as $user)
                         <tr>
-                            <th>Bulan</th>
-                            <th>Total Presensi</th>
-                            <th>Nominal</th>
-                            <th>Action</th>
+                            <th>{{ $user->bulan }} / {{ $user->tahun }}</th>
+                            <th>{{ $user->jam_kerja_bulan }} Jam / Bulan</th>
+                            <th>Rp {{ number_format($user->total_gaji , 0, ',', '.')}}</th>
                         </tr>
-                    <tfoot>
+                        @endforeach
                     </tbody>
+                    <tfoot>
+                        <th>Bulan</th>
+                        <th>Total Presensi</th>
+                        <th>Nominal</th>
+                    </tfoot>
                 </table>
             </div>
         </div>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         // Gaji
         Schema::create("gaji", function (Blueprint $table) {
-            $table->string('id_gaji')->unique();
+            $table->id('id_gaji')->primary();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('karyawan');
             $table->integer('jam_kerja_bulan');

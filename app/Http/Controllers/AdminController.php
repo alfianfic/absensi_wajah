@@ -226,7 +226,10 @@ class AdminController extends Controller
 
     public function menu_gaji()
     {
-        return view('admin.gaji');
+        $users = DB::select("select * from gaji");
+        return view('admin.gaji',['users' => $users,
+        // 'karyawan' => $karyawan
+    ]);
     }
 
     public function gaji_lembur()

@@ -7,7 +7,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Edit Presensi</h6>
     </div>
     <div class="card-body">
-        <form action="{{ route('updatepresensi', $absensi->id) }}" method="POST">
+        <form action="{{ route('updatepresensi', $absensi->id_absensi) }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>

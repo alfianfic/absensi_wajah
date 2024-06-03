@@ -11,6 +11,7 @@ class Absensi extends Model
     use HasFactory;
 
     protected $table='absensi';
+    protected $primaryKey='id_absensi';
     protected $fillable =[
         'id_absensni',
         'id_user',
