@@ -1,21 +1,17 @@
-from flask import Flask, Response, jsonify
+from flask import Flask, Response, request, jsonify
 from flask_cors import CORS
 import cv2
 import os
 from PIL import Image
 import mysql.connector
 import datetime
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
 
 # Load environment variables
 load_dotenv()
-
-# Get current time for attendance records
-now = datetime.datetime.now()
-dt = now.strftime("%H:%M:%S")
 
 class Sql:
     def __init__(self):
@@ -29,19 +25,36 @@ class Sql:
         except Exception as e:
             print(e)
             exit()
-    
+
     def sql_connect(self):
         return self.db_connect
 
-    def update_data(self, user_id):
+    def insert_data(self, user_id):
         try:
+            now = datetime.datetime.now()
+            dt = now.strftime("%H:%M:%S")
             mycursor = self.db_connect.cursor()
-            sql = "UPDATE absensi SET jam_kedatangan = %s WHERE id_user = %s"
-            val = (dt, user_id)
+            sql = "INSERT INTO absensi(id_user, jam_kedatangan) VALUES(%s, %s)"
+            val = (user_id, dt)
+            mycursor.execute(sql, val)
+            self.db_connect.commit()
+            print(mycursor.rowcount, "Data berhasil ditambahkan...")
+        except Exception as e:
+            print(f"Gagal tambah data: {e}")
+
+    def update_data(self,user_id):
+        try:
+            now = datetime.datetime.now()
+            date = now.strftime("%Y-%m-%d")
+            time = now.strftime("%H:%M:%S")
+            print(date,time)
+            mycursor = self.db_connect.cursor()
+            sql = "UPDATE absensi SET jam_pulang = %s WHERE id_user = %s AND tanggal = %s"
+            val = (time,user_id,date)
             mycursor.execute(sql, val)
             self.db_connect.commit()
             print(mycursor.rowcount, "Data berhasil diupdate...")
-        except Exception as e:
+        except Exception as e :
             print(f"Gagal update data: {e}")
 
 # Initialize database connection
@@ -49,7 +62,7 @@ con = Sql()
 conn = con.sql_connect()
 
 # Initialize camera and face detector
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 recog_face = cv2.face.LBPHFaceRecognizer_create()
 recog_face.read("./DataSet/training.xml")
@@ -58,6 +71,7 @@ def generate_frames():
     while True:
         success, frame = camera.read()
         if not success:
+            print("Failed to capture image")
             break
         else:
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -67,10 +81,10 @@ def generate_frames():
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 id, conf = recog_face.predict(gray[y:y + h, x:x + w])
                 print(f"ID: {id}, Confidence: {conf}")
-                
+
                 if conf < 100:
                     user_id = id
-                    con.update_data(user_id)  # Update data to database
+                    con.insert_data(user_id)  # Insert data to database when face is recognized
                     name = f"User {id}"
                 else:
                     name = "Unknown"
@@ -84,6 +98,16 @@ def generate_frames():
 @app.route('/video_feed')
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/check_in', methods=['POST'])
+def check_in():
+    # This endpoint will only be used to trigger the modal
+    return jsonify({"message": "Check In initiated"})
+
+@app.route('/check_out', methods=['POST'])
+def check_out():
+    # This endpoint will only be used to trigger the modal
+    return jsonify({"message": "Check Out initiated"})
 
 if __name__ == '__main__':
     app.run(debug=True)
