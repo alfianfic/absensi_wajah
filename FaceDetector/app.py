@@ -42,6 +42,21 @@ class Sql:
         except Exception as e:
             print(f"Gagal tambah data: {e}")
 
+    def update_data(self,user_id):
+        try:
+            now = datetime.datetime.now()
+            date = now.strftime("%Y-%m-%d")
+            time = now.strftime("%H:%M:%S")
+            print(date,time)
+            mycursor = self.db_connect.cursor()
+            sql = "UPDATE absensi SET jam_pulang = %s WHERE id_user = %s AND tanggal = %s"
+            val = (time,user_id,date)
+            mycursor.execute(sql, val)
+            self.db_connect.commit()
+            print(mycursor.rowcount, "Data berhasil diupdate...")
+        except Exception as e :
+            print(f"Gagal update data: {e}")
+
 # Initialize database connection
 con = Sql()
 conn = con.sql_connect()

@@ -30,14 +30,33 @@ class Sql :
 
     def update_data(self,user_id):
         try:
+            now = datetime.datetime.now()
+            date = now.strftime("%Y-%m-%d")
+            time = now.strftime("%H:%M:%S")
+            print(date,time)
             mycursor = self.db_connect.cursor()
-            sql = "UPDATE absensi SET jam_kedatangan = %s WHERE id_user = %s"
-            val = (dt,user_id)
+            sql = "UPDATE absensi SET jam_pulang = %s WHERE id_user = %s AND tanggal = %s"
+            val = (time,user_id,date)
             mycursor.execute(sql, val)
             self.db_connect.commit()
             print(mycursor.rowcount, "Data berhasil diupdate...")
         except Exception as e :
             print(f"Gagal update data: {e}")
+
+    def insert_data(self, user_id):
+        try:
+            now = datetime.datetime.now()
+            dt = now.strftime("%H:%M:%S")
+            print(dt)
+            mycursor = self.db_connect.cursor()
+            sql = "INSERT INTO absensi(id_user, jam_kedatangan) VALUES(%s, %s)"
+            val = (user_id, dt)
+            mycursor.execute(sql, val)
+            self.db_connect.commit()
+            print(mycursor.rowcount, "Data berhasil ditambahkan...")
+            exit()
+        except Exception as e:
+            print(f"Gagal tambah data: {e}")
 
 # inisialisasi koneksi
 con = Sql()
