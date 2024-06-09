@@ -33,19 +33,25 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
+    let detectedUserId = null;
+
     function openWebcam(action) {
         $('#webcamModal').modal('show');
-        if (action === 'check-in') {
-            checkInUser();
-        } else if (action === 'check-out') {
-            checkOutUser();
-        }
+        setTimeout(() => {
+            if (action === 'check-in') {
+                checkInUser();
+            } else if (action === 'check-out') {
+                checkOutUser();
+            }
+        }, 5000); // Wait for 5 seconds to simulate face detection and recognition
     }
 
     function checkInUser() {
         $.ajax({
             url: 'http://127.0.0.1:5000/check_in',
             type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ user_id: detectedUserId }),
             success: function(response) {
                 console.log(response.message);
             },
@@ -59,6 +65,8 @@
         $.ajax({
             url: 'http://127.0.0.1:5000/check_out',
             type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ user_id: detectedUserId }),
             success: function(response) {
                 console.log(response.message);
             },
