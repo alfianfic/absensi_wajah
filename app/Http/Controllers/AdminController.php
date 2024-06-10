@@ -212,6 +212,7 @@ class AdminController extends Controller
         return redirect('/validasi_izin')->with('success', 'Surat izin berhasil divalidasi.');
     }
 
+    
 
 
     public function menu_jadwal()

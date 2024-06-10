@@ -24,6 +24,8 @@ Route::get('/gaji', [PegawaiController::class, 'gaji'])->middleware('pegawai');
 Route::get('/absensi_karyawan', [PegawaiController::class, 'absensi'])->middleware('pegawai');
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware('auth');
+Route::get('/admin/dashboard', [AdminController::class, 'jumlah_karyawan'])->name('admin.dashboard')->middleware('admin');
+
 Route::get('/kelola_karyawan', [AdminController::class, 'kelola_karyawan'])->name('kelola_karyawan')->middleware('admin');
 Route::get('/tambah_karyawan', [AdminController::class, 'tambah_karyawan'])->middleware('admin');
 Route::post('/tambah_karyawan', [AdminController::class, 'store_karyawan'])->name("tambah_karyawan")->middleware('admin');
@@ -37,7 +39,7 @@ Route::post('/update_presensi/{id}', [AdminController::class, 'update_presensi']
 
 // Route::get('/admin/validasi-izin', [AdminController::class, 'showIzin'])->name('admin.showIzin');
 
-Route::post('/admin/validasi-izin/{id}', [AdminController::class, 'validasiIzin'])->name('validasiIzin')->middleware('admin');
+Route::post('/admin/validasi-izin/{id}', [IzinController::class, 'validasiadmin'])->name('validasiIzin')->middleware('admin');
 Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middleware('admin');
 Route::get('/edit_presensi/{id}', [AdminController::class, 'edit_presensi'])->middleware('admin');
 
