@@ -12,6 +12,7 @@ class Absensi extends Model
 
     protected $table='absensi';
     protected $primaryKey='id_absensi';
+    public $timestamps = false;
     protected $fillable =[
         'id_absensni',
         'id_user',
@@ -21,7 +22,6 @@ class Absensi extends Model
         'jam_kedatangan',
         'jam_pulang',
         'jam_lembur',
-        'jam_perhari',
         'status_lembur',
     ];
 

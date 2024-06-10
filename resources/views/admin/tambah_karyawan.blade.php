@@ -25,14 +25,14 @@
                     <label for="nik">NIK:</label>
                     <input type="text" class="form-control" id="nik" name="nik" value="{{ old('nik') }}" required>
                     @error('nik')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama:</label>
                     <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') }}" required>
                     @error('nama')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -42,28 +42,28 @@
                         <option value="P" {{ old('jenis_kelamin') == 'P' ? 'selected' : '' }}>Perempuan</option>
                     </select>
                     @error('jenis_kelamin')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat:</label>
                     <textarea class="form-control" id="alamat" name="alamat" required>{{ old('alamat') }}</textarea>
                     @error('alamat')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="no_hp">No Hp:</label>
                     <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ old('no_hp') }}" required>
                     @error('no_hp')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="authentifikasi_wajah">Authentifikasi Wajah:</label>
                     <input type="file" class="form-control-file" id="authentifikasi_wajah" name="authentifikasi_wajah">
                     @error('authentifikasi_wajah')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -74,7 +74,7 @@
                         <option value="3" {{ old('role') == '3' ? 'selected' : '' }}>Pegawai</option>
                     </select>
                     @error('role')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
@@ -92,24 +92,24 @@
                         </label>
                     </div>
                     @error('bekerja')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="shift">Shift:</label>
                     <select class="form-control" id="shift" name="shift" required>
-                        <option value="1" {{ old('shift') == '1' ? 'selected' : '' }}>Shift 1</option>
-                        <option value="2" {{ old('shift') == '2' ? 'selected' : '' }}>Shift 2</option>
+                        <option value="P" >Shift 1</option>
+                        <option value="M" >Shift 2</option>
                     </select>
                     @error('shift')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                     @error('password')
-                        <div class="error text-danger">{{ $message }}</div>
+                        <div class="h5 d-inline error text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>

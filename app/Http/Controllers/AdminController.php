@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
-use App\Models\Izin;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Absensi;
+use App\Models\Izin;
+use App\Models\Gaji;
 use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
@@ -68,7 +69,7 @@ class AdminController extends Controller
             'role' => 'required|integer',
             'bekerja' => 'required|boolean',
             'password' => 'required|string',
-            'shift' => 'required|in:1,2,3',
+            'shift' => 'required|in:P,M',
         ], [
             'nik.required' => 'NIK harus diisi',
             'nik.unique' => 'NIK sudah terdaftar',
@@ -120,11 +121,11 @@ class AdminController extends Controller
             'nama' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:L,P',
             'alamat' => 'required|string',
-            'no_hp' => 'required|string|max:15',
+            'no_hp' => 'nullable|string|max:15',
             'authentifikasi_wajah' => 'nullable|file|image|max:2048',
-            'role' => 'required|in:1,2,3',
+            'role' => 'required|in:1,3',
             'bekerja' => 'required|boolean',
-            'shift' => 'required|in:1,2',
+            'shift' => 'required|in:P,M',
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
@@ -178,10 +179,10 @@ class AdminController extends Controller
             'tanggal' => 'required|date',
             'alpha' => 'required|integer',
             'sakit' => 'required|integer',
-            'jam_kedatangan' => 'required|date_format:H:i',
-            'jam_pulang' => 'required|date_format:H:i',
-            'jam_perhari' => 'required|integer',
-            'status_lembur' => 'required|boolean',
+            'jam_kedatangan' => 'required',
+            'jam_pulang' => 'required',
+            // 'jam_perhari' => 'required',
+            'status_lembur' => 'required',
             'jam_lembur' => 'nullable|integer',
         ]);
 
@@ -236,7 +237,7 @@ class AdminController extends Controller
         return redirect('/validasi_izin')->with('success', 'Surat izin berhasil divalidasi.');
     }
 
-    
+
 
 
     public function menu_jadwal()
@@ -251,10 +252,12 @@ class AdminController extends Controller
 
     public function menu_gaji()
     {
-        $users = DB::select("select * from gaji");
-        return view('admin.gaji',['users' => $users,
+        $users = Gaji::with('user')->get();
+        return view('admin.gaji',compact('users')
+        // return view('admin.gaji',['users' => $users,
         // 'karyawan' => $karyawan
-    ]);
+    // ]
+    );
     }
 
     public function gaji_lembur()

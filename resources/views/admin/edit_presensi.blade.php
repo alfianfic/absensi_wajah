@@ -11,7 +11,7 @@
             @csrf
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>
-                <input type="date" name="tanggal" class="form-control" value="{{ $absensi->tanggal }}" required>
+                <input type="date" name="tanggal" class="form-control" value="{{ $absensi->tanggal }}" readonly>
             </div>
             <div class="form-group">
                 <label for="alpha">Alpha</label>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label for="jam_perhari">Jam Kerja</label>
-                <input type="number" name="jam_perhari" class="form-control" value="{{ $absensi->jam_perhari }}" required>
+                <input type="number" name="jam_perhari" class="form-control" value="{{ $absensi->jam_perhari }}" readonly>
             </div>
             <div class="form-group">
                 <label for="status_lembur">Status Lembur</label>

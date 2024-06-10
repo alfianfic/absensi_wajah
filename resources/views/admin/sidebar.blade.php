@@ -52,12 +52,14 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Lembur</span></a>
             </li> --}}
-
+            @if (auth()->user()->role==2)
+            @else
             <li class="nav-item">
                 <a class="nav-link" href="/validasi_izin">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Validasi Surat</span></a>
             </li>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

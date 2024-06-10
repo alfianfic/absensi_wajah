@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Nette\Utils\Random;
 
 class DatabaseSeeder extends Seeder
 {
@@ -95,42 +96,155 @@ class DatabaseSeeder extends Seeder
         //TAMBAH DATA GAJI
         DB::table('absensi')->insert([
             [
-            'id_user' => $namaIDs[0],
+            'id_user' => random_int(3,7),
             'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
             'sakit' => 0,
+            'jam_pulang' => random_int(01,10) .':'. random_int(01,59) . ':' . 00,
             ],
             [
-            'id_user' => $namaIDs[2],
+            'id_user' => random_int(3,7),
             'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
             'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
             ],
             [
-            'id_user' => $namaIDs[1],
+            'id_user' => random_int(3,7),
             'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
             'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
+            ],
+            [
+            'id_user' => random_int(3,7),
+            'alpha' => 0,
+            'tanggal' => "2024-".random_int(1,5)."-".random_int(1,28),
+            'sakit' => 0,
+            'jam_pulang' => random_int(01,22) .':'. random_int(01,59) . ':' . 00,
             ],
         ]
         );
         $gajiIDs = DB::table('absensi')->pluck('id_absensi');
         // echo($gajiIDs);
         // GAJI SEEDER
-        DB::table('gaji')->insert([
-            [
-            'id_gaji' => '00001',
-            'id_user' => $namaIDs[0],
-            'jam_kerja_bulan' => 200,
-            ],
-            [
-            'id_gaji' => '00002',
-            'id_user' => $namaIDs[1],
-            'jam_kerja_bulan' => 200,
-            ],
-            [
-            'id_gaji' => '00003',
-            'id_user' => $namaIDs[0],
-            'jam_kerja_bulan' => 200,
-            ],
-            ]
-        );
+        // DB::table('absensi')->insert([
+        //     [
+        //     'id_user' => 3,
+        //     ],
+        //     ]
+        // );
     }
 }

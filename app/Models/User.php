@@ -65,4 +65,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Izin::class, 'id_user');
     }
+    
+    public function gaji(): HasMany
+    {
+        return $this->hasMany(Gaji::class, 'id_user');
+    }
 }

@@ -19,7 +19,10 @@
                         <th>Jam Kerja</th>
                         <th>Status Lembur</th>
                         <th>Jam Lembur</th>
+                        @if (auth()->user()->role==2)
+                        @else
                         <th>Action</th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -31,12 +34,15 @@
                         <td>{{ $absensi->sakit }}</td>
                         <td>{{ $absensi->jam_kedatangan }}</td>
                         <td>{{ $absensi->jam_pulang }}</td>
-                        <td>{{ $absensi->jam_perhari }}</td>
+                        <td>{{ round($absensi->jam_perhari) }} jam</td>
                         <td>{{ $absensi->status_lembur === '0' ? 'Tidak Lembur' : 'Lembur' }}</td>
                         <td>{{ $absensi->jam_lembur }}</td>
+                        @if (auth()->user()->role==2)
+                        @else
                         <td>
                             <a href="/edit_presensi/{{ $absensi->id_absensi }}" class="btn btn-warning btn-sm">Edit</a>
                         </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

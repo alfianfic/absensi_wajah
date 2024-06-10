@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="no_hp">No Hp:</label>
-                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ old('no_hp', $karyawan->no_hp) }}" required>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{ old('no_hp', $karyawan->no_hp) }}">
                     @error('no_hp')
                         <div class="error text-danger">{{ $message }}</div>
                     @enderror
@@ -67,7 +67,7 @@
                     <label for="role">Role:</label>
                     <select class="form-control" id="role" name="role" required>
                         <option value="1" {{ old('role', $karyawan->role) == '1' ? 'selected' : '' }}>Admin</option>
-                        <option value="2" {{ old('role', $karyawan->role) == '2' ? 'selected' : '' }}>Pemilik</option>
+                        {{-- <option value="2" {{ old('role', $karyawan->role) == '2' ? 'selected' : '' }}>Pemilik</option> --}}
                         <option value="3" {{ old('role', $karyawan->role) == '3' ? 'selected' : '' }}>Pegawai</option>
                     </select>
                     @error('role')
@@ -95,8 +95,8 @@
                 <div class="form-group">
                     <label for="shift">Shift:</label>
                     <select class="form-control" id="shift" name="shift" required>
-                        <option value="1" {{ old('shift', $karyawan->shift) == '1' ? 'selected' : '' }}>Shift 1</option>
-                        <option value="2" {{ old('shift', $karyawan->shift) == '2' ? 'selected' : '' }}>Shift 2</option>
+                        <option value="P" {{ old('shift') }}>Shift 1</option>
+                        <option value="M" {{ old('shift') }}>Shift 2</option>
                     </select>
                     @error('shift')
                         <div class="error text-danger">{{ $message }}</div>
