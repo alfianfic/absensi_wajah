@@ -12,8 +12,13 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $jumlahKaryawan = User::count();
+        $jumlahsuratizin = Izin::count();
+        $jumlahpresensi = Absensi::count();
+        return view('admin.dashboard',compact('jumlahpresensi','jumlahKaryawan','jumlahsuratizin'));
     }
+
+
 
     public function kelola_karyawan()
     {
@@ -170,11 +175,7 @@ class AdminController extends Controller
         return redirect('/kelola_karyawan')->with('success', 'Karyawan berhasil dihapus');
     }
 
-    public function jumlah_karyawan()
-{
-    $jumlahKaryawan = User::count();
-    return view('admin.dashboard', compact('jumlahKaryawan'));
-}
+
 
     public function validasi_izin()
     {
