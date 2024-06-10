@@ -33,7 +33,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-    let detectedUserId = null;
+    let detectedUserId = {{ auth()->user()->id }};
+
 
     function openWebcam(action) {
         $('#webcamModal').modal('show');
@@ -54,6 +55,7 @@
             data: JSON.stringify({ user_id: detectedUserId }),
             success: function(response) {
                 console.log(response.message);
+                alert(response.message)
             },
             error: function(error) {
                 console.error('Error during check-in');
@@ -69,6 +71,7 @@
             data: JSON.stringify({ user_id: detectedUserId }),
             success: function(response) {
                 console.log(response.message);
+                alert(response.message);
             },
             error: function(error) {
                 console.error('Error during check-out');

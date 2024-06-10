@@ -83,10 +83,10 @@ def video_feed():
                     id, conf = recog_face.predict(gray[y:y + h, x:x + w])
                     # print(f"ID: {id}, Confidence: {conf}")
 
-                    name = "Unknown"
-                    if conf < 100:
-                        name = f"User {id}"
-                    cv2.putText(frame, name, (x + 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                    # name = "Unknown"
+                    # if conf < 100:
+                    #     name = f"User {id}"
+                    # cv2.putText(frame, name, (x + 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
                 ret, buffer = cv2.imencode('.jpg', frame)
                 frame = buffer.tobytes()
