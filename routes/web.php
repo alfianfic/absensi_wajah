@@ -14,7 +14,8 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/',  [AuthController::class, 'index'])->name('login')->middleware('guest');
 
 Route::get('/jadwal', [UserController::class, 'jadwal'])->middleware('auth')->name('profile')->middleware('auth');
-Route::get('/profil', [UserController::class, 'profil'])->middleware('auth')->name('profile')->middleware('auth');
+Route::get('/profil', [UserController::class, 'profil'])->middleware('auth')->name('profil.edit')->middleware('auth');
+Route::put('/profil', [UserController::class, 'update'])->name('profil.update')->middleware('auth');
 Route::get('/test', [UserController::class, 'test'])->middleware('auth');
 
 Route::get('/beranda', [PegawaiController::class, 'beranda'])->middleware('pegawai');
