@@ -37,7 +37,7 @@ Route::post('/update_presensi/{id}', [AdminController::class, 'update_presensi']
 
 // Route::get('/admin/validasi-izin', [AdminController::class, 'showIzin'])->name('admin.showIzin');
 
-Route::post('/admin/validasi-izin/{id}', [AdminController::class, 'validasiIzin'])->name('validasiIzin')->middleware('admin');
+Route::post('/admin/validasi-izin/{id}', [IzinController::class, 'validasiadmin'])->name('validasiIzin')->middleware('admin');
 Route::get('/validasi_izin', [AdminController::class, 'validasi_izin'])->middleware('admin');
 Route::get('/edit_presensi/{id}', [AdminController::class, 'edit_presensi'])->middleware('admin');
 

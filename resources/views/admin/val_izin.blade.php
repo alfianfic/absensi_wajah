@@ -18,6 +18,7 @@
                         <tr>
                             <th>Nama</th>
                             <th>Surat</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,10 +30,19 @@
                                 <a href="{{ asset($izin->file_izin) }}" target="_blank">Lihat Surat</a>
                             </td>
                             <td>
+                                @if ($izin->status==1)
+                                    <span class="badge badge-success">Tervalidasi</span>
+                                @elseif ($izin->status==0)
+                                    <span class="badge badge-warning">Belum Tervalidasi</span>
+                                {{-- @else
+                                    <span class="badge badge-danger">Ditolak</span> --}}
+                                @endif
+                            </td>
+                            <td>
                                 <form action="{{ route('validasiIzin', $izin->id_izin) }}" method="post">
                                     @csrf
                                     <button type="submit" name="status" value="1" class="btn btn-success">Validasi</button>
-                                    <button type="submit" name="status" value="0" class="btn btn-danger">Tolak</button>
+                                    {{-- <button type="submit" name="status" value="0" class="btn btn-danger">Tolak</button> --}}
                                 </form>
                             </td>
                         </tr>
