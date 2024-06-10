@@ -25,7 +25,8 @@ Route::get('/gaji', [PegawaiController::class, 'gaji'])->middleware('pegawai');
 Route::get('/absensi_karyawan', [PegawaiController::class, 'absensi'])->middleware('pegawai');
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware('auth');
-
+Route::get('/profile-admin', [AdminController::class, 'profiledit'])->middleware('auth')->name('profil.edit')->middleware('auth');
+Route::put('/profil-admin', [AdminController::class, 'update'])->name('profil.update')->middleware('auth');
 Route::get('/kelola_karyawan', [AdminController::class, 'kelola_karyawan'])->name('kelola_karyawan')->middleware('admin');
 Route::get('/tambah_karyawan', [AdminController::class, 'tambah_karyawan'])->middleware('admin');
 Route::post('/tambah_karyawan', [AdminController::class, 'store_karyawan'])->name("tambah_karyawan")->middleware('admin');

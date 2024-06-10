@@ -8,6 +8,7 @@ use App\Models\Izin;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Absensi;
+use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function dashboard()
@@ -18,7 +19,29 @@ class AdminController extends Controller
         return view('admin.dashboard',compact('jumlahpresensi','jumlahKaryawan','jumlahsuratizin'));
     }
 
+    public function profiledit()
+    {
+        return view('admin.profil');
+    }
+    public function update(Request $request)
+    {
+        $user = Auth::user();
 
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:L,P',
+            'alamat' => 'nullable|string|max:255',
+            'no_hp' => 'nullable|string|max:14',
+        ]);
+
+        $user->nama = $request->nama;
+        $user->jenis_kelamin = $request->jenis_kelamin;
+        $user->alamat = $request->alamat;
+        $user->no_hp = $request->no_hp;
+        $user->save();
+
+        return redirect()->route('profil.edit')->with('success', 'Profil berhasil diperbarui');
+    }
 
     public function kelola_karyawan()
     {
