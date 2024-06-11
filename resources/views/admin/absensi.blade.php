@@ -17,7 +17,7 @@
                         <th>Masuk</th>
                         <th>Pulang</th>
                         <th>Jam Kerja</th>
-                        <th>Status Lembur</th>
+                        {{-- <th>Status Lembur</th> --}}
                         <th>Jam Lembur</th>
                         @if (auth()->user()->role==2)
                         @else
@@ -35,7 +35,7 @@
                         <td>{{ $absensi->jam_kedatangan }}</td>
                         <td>{{ $absensi->jam_pulang }}</td>
                         <td>{{ round($absensi->jam_perhari) }} jam</td>
-                        <td>{{ $absensi->status_lembur === '0' ? 'Tidak Lembur' : 'Lembur' }}</td>
+                        {{-- <td>{{ $absensi->status_lembur === '0' ? 'Tidak Lembur' : 'Lembur' }}</td> --}}
                         <td>{{ $absensi->jam_lembur }}</td>
                         @if (auth()->user()->role==2)
                         @else

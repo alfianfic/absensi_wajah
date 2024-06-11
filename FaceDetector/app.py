@@ -61,7 +61,7 @@ con = Sql()
 conn = con.sql_connect()
 
 # Initialize camera and face detector
-camera = cv2.VideoCapture(0, cv2.CAP_V4L)
+camera = cv2.VideoCapture(0)
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 recog_face = cv2.face.LBPHFaceRecognizer_create()
 recog_face.read("./DataSet/training.xml")

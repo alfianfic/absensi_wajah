@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Izin;
 
 class PegawaiController extends Controller
 {
@@ -48,9 +49,8 @@ class PegawaiController extends Controller
     }
     public function izin()
     {
-        $users = DB::select('select * from izin');
-        return view('pegawai.izin',[
-            'users' => $users,
-        ]);
+        $users = Izin::with('user')->where('id_user','=',auth()->user()->nik)->get();
+        return view('pegawai.izin',compact('users'));
+        
     }
 }

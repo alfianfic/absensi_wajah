@@ -32,9 +32,9 @@
                         @endforeach
                     </tbody>
                     <tfoot>
-                        <th>Bulan</th>
+                        {{-- <th>Bulan</th>
                         <th>Total Presensi</th>
-                        <th>Nominal</th>
+                        <th>Nominal</th> --}}
                     </tfoot>
                 </table>
             </div>
