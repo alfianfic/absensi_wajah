@@ -10,7 +10,9 @@ class IzinController extends Controller
 {
     public function create()
     {
-        return view('pegawai.izin');
+        $users = session('users');
+
+        return view('pegawai.izin',compact('users'));
     }
 
     public function store(Request $request)
@@ -20,6 +22,7 @@ class IzinController extends Controller
         ]);
 
         $user = Auth::user();
+        $users = Izin::with('user')->where('id_user','=',auth()->user()->nik)->get();
 
         if ($request->hasFile('file_izin')) {
             $file = $request->file('file_izin');
@@ -33,7 +36,7 @@ class IzinController extends Controller
             $izin->tgl = now();
             $izin->save();
 
-            return redirect()->route('create-izin')->with('success', 'Surat izin berhasil diupload.');
+            return redirect()->route('return-izin')->with('success', 'Surat izin berhasil diupload.')->with('users', $users);
         }
 
         return back()->withErrors(['file_izin' => 'File upload failed.']);
